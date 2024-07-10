@@ -1,0 +1,116 @@
+
+.home {
+    padding: 20px;
+}
+
+.movie__home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie__home-content {
+    width: 100%;
+    max-width: 1200px; /* Adjust this to control the maximum width of the content */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start */
+}
+
+.movie__home-content h2 {
+    font-family: var(--font-family);
+    margin-bottom: 3rem;
+    color: #ffffff; /* White color for the heading */
+    align-self: center;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.movieList {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+}
+
+.movieContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #5a5c80; /* Light purple/blue background */
+    color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better separation */
+    width: 100%; /* Ensure it takes full width */
+}
+
+.movieInfo {
+    display: flex;
+    align-items: flex-start;
+}
+
+.moviePoster {
+    width: 100px;
+    height: 150px;
+    margin-right: 15px;
+    border-radius: 5px; /* Slight rounding for a softer look */
+}
+
+.movieText {
+    flex: 1;
+}
+
+.movieTitle {
+    font-size: 18px;
+    margin: 0 0 5px 0;
+    color: #ffffff; /* White color for the title */
+}
+
+.movieDetails {
+    font-size: 14px;
+    margin: 0 0 5px 0;
+    color: #e0e0e0; /* Light gray for the details */
+}
+
+.movieOverview {
+    font-size: 12px;
+    margin: 0;
+    color: #cccccc; /* Slightly lighter gray for the overview */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 118px; /* Adjust based on how much you want to show */
+    transition: max-height 0.3s ease;
+}
+
+.movieOverview.expanded {
+    max-height: 100%; /* Allows full height when expanded */
+}
+
+.addButton {
+    background-color: #41425d; /* Orange color for the button */
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    border-style:none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px; /* Ensure some spacing from the text */
+    align-self: flex-end; /* Align button to the end */
+}
+
+.addButton:hover {
+    background-color: #232333;
+}
+
+.readMoreButton {
+    background: none;
+    border: none;
+    color: #3498db;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.readMoreButton:hover {
+    text-decoration: underline;
+}

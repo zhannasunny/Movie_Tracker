@@ -1,0 +1,13 @@
+.movie__list {
+    display: flex;
+}
+
+.movie__list-content{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+    margin-right: 5rem;
+}

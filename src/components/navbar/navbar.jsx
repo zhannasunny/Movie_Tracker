@@ -21,7 +21,7 @@ function SignIn(){
   return (
     <>
       <p><Link to="/login">Sign In</Link></p>
-      <button type = "button"><Link to="/login">Sign Up</Link></button>
+      <button type = "button"><Link to="/signup">Sign Up</Link></button>
     </>
   );
     

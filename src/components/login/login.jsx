@@ -49,8 +49,11 @@ const Login = () => {
           <p>Don't have an account? <Link to = "/signup">Sign Up Here</Link></p>
           <p>Forgot your password? <Link to = "/forgot-password">Reset password</Link></p>
         </div>
+        <div className="message">
+          {message && <p>{message}</p>} {/* Display the message */}
+        </div>
       </form>
-      {message && <p>{message}</p>} {/* Display the message */}
+      
     </div>
     </div>
 

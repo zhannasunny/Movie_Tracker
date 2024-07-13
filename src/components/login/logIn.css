@@ -1,0 +1,74 @@
+/* src/components/login/Signup.css */
+
+.auth{
+    padding: 20px;
+}
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    /* background-color: #1e1e2f; Dark background to match the gradient */
+  }
+  
+.signup-form {
+    background: #2a2a3d; 
+    padding: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+  
+.signup-form h2 {
+    margin-bottom: 1.5rem;
+    color: #ffffff; /* White text color */
+}
+  
+.signup-form input {
+    width: calc(100% - 2rem);
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #444; /* Darker border */
+    border-radius: 4px;
+    background-color: #333; /* Darker input background */
+    color: #fff; /* White text color */
+}
+  
+.signup-form input::placeholder {
+    color: #aaa; /* Light gray placeholder color */
+}
+  
+.signup-form button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background-color: #e91e63; /* Pink background to match the sign-up button in the header */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+  
+.signup-form button:hover {
+    background-color: #d81b60; /* Darker pink on hover */
+}
+
+.qs{
+    color: #ffffff;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.qs p{
+    margin-top: 0.5rem;
+}
+.qs a{
+    text-decoration: underline;
+    
+}

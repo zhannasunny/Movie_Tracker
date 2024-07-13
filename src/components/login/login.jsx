@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
+import './login.css';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -26,8 +28,10 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className = "auth">
+    <div className="signup-container">
+      <form onSubmit={handleSubmit} className="signup-form">
+        <h2>Sign In</h2>
         <input
           type="text"
           placeholder="Username"
@@ -40,10 +44,16 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button type="submit">Sign In</button>
+        <div className='qs'>
+          <p>Don't have an account? <Link to = "/signup">Sign Up Here</Link></p>
+          <p>Forgot your password? <Link to = "/forgot-password">Reset password</Link></p>
+        </div>
       </form>
       {message && <p>{message}</p>} {/* Display the message */}
     </div>
+    </div>
+
   );
 };
 

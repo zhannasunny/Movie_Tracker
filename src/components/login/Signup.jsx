@@ -8,6 +8,7 @@ const Signup = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const { login } = useAuth();
 
   const handleSubmit = async (e) => {
@@ -22,7 +23,11 @@ const Signup = () => {
       login(response.data.token);
       setMessage('Sign-Up successful!'); // Set success message
     } catch (error) {
-      console.error('Error signing up:', error.response.data.message);
+      if (error.response && error.response.status === 400) {
+        setErrorMessage('Username already exists'); // Set error message if username exists
+      } else {
+        setErrorMessage('An error occurred. Please try again.'); // General error message
+      }
     }
   };
 
@@ -48,9 +53,13 @@ const Signup = () => {
         <div className='qs'>
           <p>Already registered? <Link to = "/login">Sign In Here</Link></p>
         </div>
+        
         <div className="message">
-        {message && <p>{message}</p>} {/* Display the message */}
-      </div>
+          {message && <p>{message}</p>} 
+          <div className="error">
+            {errorMessage && <p>{errorMessage}</p>}
+          </div>
+        </div>
       </form>
       
     </div>

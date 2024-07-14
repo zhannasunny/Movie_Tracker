@@ -79,3 +79,9 @@
     display: flex;
     flex-direction: column;
 }
+
+.error{
+    color: rgb(195, 51, 51);
+    display: flex;
+    flex-direction: column;
+}

@@ -3,10 +3,11 @@ import './navbar.css';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import logo from '../../assets/logo.png';
 import { Link, useLocation } from 'react-router-dom';
-import { AppBar, Avatar, Button, Typography } from '@mui/material';
+import { useAuth } from '../context/AuthContext';
 
 function Menu() {
   const location = useLocation();
+
   return (
     <>
       <p><Link to="/home">Home</Link></p>
@@ -28,6 +29,7 @@ function SignIn(){
 }
 function Navbar(){
   const [toggleMenu, setToggleMenu] = React.useState(false);
+  const { username, logout } = useAuth(); // Access username and logout function
   return (
     <div className = "movie__navbar">
       <div className = "movie__navbar-links">
@@ -40,7 +42,14 @@ function Navbar(){
       </div>
 
       <div className = "movie__navbar-sign">
-        <SignIn/>
+                {username ? (
+                  <>
+                    <p>{username}</p>
+                    <button type="button" onClick={logout}>Logout</button>
+                  </>
+                ) : (
+                  <SignIn/>
+                )}
       </div>
       <div className = "movie__navbar-menu">
         {toggleMenu
@@ -52,7 +61,14 @@ function Navbar(){
             <div className = "movie__navbar-menu_container-links">
               <Menu/>
               <div className = "movie__navbar-menu_container-links-sign">
-                <SignIn/>
+              {username ? (
+                  <>
+                    <p>{username}</p>
+                    <button type="button" onClick={logout}>Logout</button>
+                  </>
+                ) : (
+                  <SignIn />
+                )}
               </div>
             </div>
           </div>

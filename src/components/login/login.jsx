@@ -19,7 +19,7 @@ const Login = () => {
         password,
       });
 
-      login(response.data.token);
+      login(response.data.token, username); 
       setMessage('Login successful!'); // Set success message
     } catch (error) {
       console.error('Error logging in:', error.response.data.message);
@@ -50,7 +50,7 @@ const Login = () => {
           <p>Forgot your password? <Link to = "/forgot-password">Reset password</Link></p>
         </div>
         <div className="message">
-          {message && <p>{message}</p>} {/* Display the message */}
+          {message && <p>{message}</p>} 
         </div>
       </form>
       

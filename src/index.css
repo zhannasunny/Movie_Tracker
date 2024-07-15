@@ -1,7 +1,7 @@
   :root {
     font-family: Arial, Helvetica, sans-serif;
 
-    --color-bg: #080B3A;
+    --color-bg: linear-gradient(to left top, #26083a, #21093a, #1c0a3a, #170b3a, #110b3a, #110b3a, #110b3a, #110b3a, #170b3a, #1c0a3a, #21093a, #26083a);
     --color-text: #81AFDD;
     --color-footer: #4a4e69;
     --color-blog: #9a8c98;

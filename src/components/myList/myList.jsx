@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAuth } from '../context/AuthContext';
+import './myList.css';
 
-function MyList() {
+const MyList = () => {
+  const { token, myList, fetchMyList } = useAuth();
+
+  useEffect(() => {
+    if (token) {
+      fetchMyList(token);
+    }
+  }, [token, fetchMyList]);
+  
+  console.log('My list:', myList);
+
+  if (!token) {
+    return <p>To access your list, log in.</p>;
+  }
+
   return (
-    <div className = "movie__list section__padding">
-        <div className = "movie__list-content">
-            <h1 className = "gradient__text">My List</h1>
-        </div>
+    <div className="myList-container">
+      <h2>My List</h2>
+      {myList.length > 0 ? (
+        <ul>
+          {myList.map((movie, index) => (
+            <li key={index} className="myListItem">
+              {movie.title}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Your list is empty.</p>
+      )}
     </div>
   );
-}
+};
 
 export default MyList;

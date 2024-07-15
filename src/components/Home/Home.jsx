@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import Header from '../../containers/header/header'; // Ensure correct import path
+import Header from '../../containers/header/header';
+import { useAuth } from '../context/AuthContext';
 import './home.css';
 
 function Home() {
   const [searchResults, setSearchResults] = useState([]);
   const [expandedMovies, setExpandedMovies] = useState([]);
+  const { token, addToMyList } = useAuth();
 
   const handleAddToList = (movie) => {
-    console.log('Add to list:', movie);
-    // Implement the logic to add the movie to a list
+    if (!token) {
+      alert('You need to log in to add movies to your list.');
+      return;
+    }
+    addToMyList(movie);
   };
 
   const getFullImagePath = (path) => {
-    const baseURL = 'https://image.tmdb.org/t/p/w500'; // TMDb base URL for images
-    return path ? `${baseURL}${path}` : '/default-image.jpg'; // Default image path relative to the public folder
+    const baseURL = 'https://image.tmdb.org/t/p/w500';
+    return path ? `${baseURL}${path}` : '/default-image.jpg';
   };
 
   const formatYear = (dateString) => {
@@ -38,7 +43,7 @@ function Home() {
             <h2 className='gradient__text'>Search Results</h2>
             <ul className='movieList'>
               {searchResults.map((movie) => {
-                const isTextLong = movie.overview.length > 900; // Adjust the length threshold as needed
+                const isTextLong = movie.overview.length > 900;
 
                 return (
                   <div key={movie.id} className='movieContainer'>
@@ -47,7 +52,7 @@ function Home() {
                         src={getFullImagePath(movie.poster_path)} 
                         alt={movie.title} 
                         className='moviePoster' 
-                        onError={(e) => { e.target.src = '/default-image.jpg'; }} // Fallback image on error
+                        onError={(e) => { e.target.src = '/default-image.jpg'; }}
                       />
                       <div className='movieText'>
                         <h3 className='movieTitle'>{movie.title}</h3>

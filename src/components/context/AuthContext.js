@@ -1,3 +1,5 @@
+// components/context/AuthContext.js
+
 import React, { createContext, useState, useContext } from 'react';
 import axios from 'axios';
 
@@ -49,8 +51,23 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const removeFromMyList = async (movieId) => {
+    try {
+      await axios.delete(
+        'http://localhost:5000/api/users/myList',
+        {
+          headers: { Authorization: `Bearer ${token}` },
+          data: { movieId }
+        }
+      );
+      fetchMyList(token); // Refresh the list
+    } catch (error) {
+      console.error('Error removing from my list:', error.response ? error.response.data.message : error.message);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ token, username, login, logout, myList, addToMyList, fetchMyList }}>
+    <AuthContext.Provider value={{ token, username, login, logout, myList, addToMyList, fetchMyList, removeFromMyList }}>
       {children}
     </AuthContext.Provider>
   );

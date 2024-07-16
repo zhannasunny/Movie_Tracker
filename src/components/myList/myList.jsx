@@ -22,20 +22,22 @@ const MyList = () => {
   }
 
   return (
-    <div className="myList-container">
-      <h2>My List</h2>
-      {myList.length > 0 ? (
-        <ul>
-          {myList.map((movie, index) => (
-            <li key={index} className="myListItem">
-              {movie.title}
-              <button onClick={() => handleRemove(movie.id)}>Remove</button>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Your list is empty.</p>
-      )}
+    <div className="myList section__padding">
+      <div className="myList-content">
+        <h1 className='gradient__text'>My List</h1>
+        {myList.length > 0 ? (
+          <ul>
+            {myList.map((movie, index) => (
+              <li key={index} className="myList-item">
+                {movie.title}
+                <button onClick={() => handleRemove(movie.id)}>Remove</button>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>Your list is empty.</p>
+        )}
+      </div>
     </div>
   );
 };

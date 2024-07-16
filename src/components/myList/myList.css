@@ -1,59 +1,38 @@
-.myList-container {
+.myList{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+
+.myList-content{
+    flex: 1;
+    display: flex;
     justify-content: center;
-    min-height: 30vh;
-    background-color: #2c2f48;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    margin: auto;
-    color: #ffffff;
-  }
-  
-  .myList-container h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
-  .myList-container ul {
-    list-style-type: none;
-    padding: 0;
-    width: 100%;
-  }
-  
-  .myListItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    border-bottom: 1px solid #444;
-    margin-bottom: 0.5rem;
-  }
-  
-  .myListItem:last-child {
-    border-bottom: none;
-  }
-  
-  .myListItem button {
-    background-color: #ff8c00;
+    align-items: flex-start;
+    flex-direction: column;
+
+    margin-right: 5rem;
+}
+
+.myList-content button{
+    background-color: #e91e63;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-  }
-  
-  .myListItem button:hover {
-    background-color: #d35400;
-  }
-  
-  .myList-container p {
-    color: #ffffff;
-    text-align: center;
-  }
-  
+}
+
+.myList-content h3{
+    font-family: var(--font-family);
+    font-size: 400;
+    margin-top: 3rem;
+}
+
+.myList-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    
+    border-radius: 5px;
+}
+

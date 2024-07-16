@@ -35,10 +35,10 @@ function Home() {
   };
 
   return (
-    <div className="home">
+    <div className="home section__padding">
       <Header setSearchResults={setSearchResults} />
       {searchResults.length > 0 && (
-        <div className="movie__home section__padding">
+        
           <div className="movie__home-content">
             <h2 className='gradient__text'>Search Results</h2>
             <ul className='movieList'>
@@ -80,7 +80,7 @@ function Home() {
               })}
             </ul>
           </div>
-        </div>
+        
       )}
     </div>
   );

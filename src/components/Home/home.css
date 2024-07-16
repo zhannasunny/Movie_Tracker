@@ -1,12 +1,11 @@
+/* home.css */
 
 .home {
-    padding: 20px;
-}
-
-.movie__home {
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* min-height: 100vh; */
 }
 
 .movie__home-content {
@@ -15,6 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align items to the start */
+    margin-top: 20px;
 }
 
 .movie__home-content h2 {
@@ -91,7 +91,7 @@
     color: white;
     width: 100%;
     border-radius: 5px;
-    border-style:none;
+    border-style: none;
     padding: 10px;
     cursor: pointer;
     margin-top: 10px; /* Ensure some spacing from the text */
@@ -113,4 +113,11 @@
 
 .readMoreButton:hover {
     text-decoration: underline;
+}
+
+.no-results {
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 20px;
+    text-align: center;
 }

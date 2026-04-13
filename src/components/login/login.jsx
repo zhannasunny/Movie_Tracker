@@ -22,8 +22,8 @@ const Login = () => {
       login(response.data.token, username); 
       setMessage('Login successful!'); // Set success message
     } catch (error) {
-      console.error('Error logging in:', error.response.data.message);
-      setMessage('Login failed!'); // Set failure message
+      console.error('Error logging in:', error.response?.data?.message || error.message);
+      setMessage(error.response?.data?.message || 'Login failed!');
     }
   };
 

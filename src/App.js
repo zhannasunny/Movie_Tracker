@@ -6,7 +6,7 @@ import Home from './components/Home/Home';
 import Movies from './components/Movies/movies';
 import Series from './components/Series/series';
 import Signup from './components/login/Signup';
-import Login from './components/login/Login';
+import Login from './components/login/login';
 import MyList from './components/myList/myList';
 import { AuthProvider } from './components/context/AuthContext';
 

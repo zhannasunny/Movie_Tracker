@@ -18,7 +18,14 @@ const MyList = () => {
   };
 
   if (!token) {
-    return <p>To access your list, log in.</p>;
+    return (
+    <div className="myList section__padding">
+      <div className="myList-content">
+        <h1 className='gradient__text'>To access your list, please log in</h1>
+      </div>
+    </div>
+        
+    );
   }
 
   return (
@@ -35,7 +42,7 @@ const MyList = () => {
             ))}
           </ul>
         ) : (
-          <p>Your list is empty.</p>
+          <p className='gradient__text'>Your list is empty.</p>
         )}
       </div>
     </div>

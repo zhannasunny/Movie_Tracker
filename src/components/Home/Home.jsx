@@ -18,7 +18,7 @@ function Home() {
 
   const getFullImagePath = (path) => {
     const baseURL = 'https://image.tmdb.org/t/p/w500';
-    return path ? `${baseURL}${path}` : '/default-image.jpg';
+    return path ? `${baseURL}${path}` : '/default-image.jpeg';
   };
 
   const formatYear = (dateString) => {

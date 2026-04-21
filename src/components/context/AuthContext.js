@@ -42,27 +42,35 @@ export const AuthProvider = ({ children }) => {
     try {
       await axios.post(
         'http://localhost:5000/api/users/myList',
-        { movie },
+        {
+          id: String(movie.id),
+          title: movie.title || movie.name,
+          poster_path: movie.poster_path,
+          media_type: movie.media_type || (movie.first_air_date ? 'tv' : 'movie'),
+          release_date: movie.release_date || movie.first_air_date,
+        },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      fetchMyList(token); // Refresh the list
+      fetchMyList(token);
     } catch (error) {
-      console.error('Error adding to my list:', error.response ? error.response.data.message : error.message);
+      console.error(
+        'Error adding to my list:',
+        error.response?.data?.message || error.message
+      );
     }
   };
 
   const removeFromMyList = async (movieId) => {
     try {
-      await axios.delete(
-        'http://localhost:5000/api/users/myList',
-        {
-          headers: { Authorization: `Bearer ${token}` },
-          data: { movieId }
-        }
-      );
-      fetchMyList(token); // Refresh the list
+      await axios.delete(`http://localhost:5000/api/users/myList/${movieId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      fetchMyList(token);
     } catch (error) {
-      console.error('Error removing from my list:', error.response ? error.response.data.message : error.message);
+      console.error(
+        'Error removing from my list:',
+        error.response?.data?.message || error.message
+      );
     }
   };
 

@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import MovieCard from '../movieCard/movieCard';
 import './myList.css';
 
 const MyList = () => {
@@ -13,8 +14,8 @@ const MyList = () => {
     }
   }, [token, fetchMyList]);
 
-  const handleRemove = (movieId) => {
-    removeFromMyList(movieId);
+  const handleRemove = (movie) => {
+    removeFromMyList(movie.id);
   };
 
   if (!token) {
@@ -31,18 +32,24 @@ const MyList = () => {
   return (
     <div className="myList section__padding">
       <div className="myList-content">
-        <h1 className='gradient__text'>My List</h1>
+        <h1 className="gradient__text">My List</h1>
+
         {myList.length > 0 ? (
-          <ul>
-            {myList.map((movie, index) => (
-              <li key={index} className="myList-item">
-                {movie.title}
-                <button onClick={() => handleRemove(movie.id)}>Remove</button>
-              </li>
-            ))}
-          </ul>
+          <div className="movie__home-content">
+            <ul className="movieList">
+              {myList.map((movie) => (
+                <MovieCard
+                  key={movie.id}
+                  movie={movie}
+                  buttonText="Remove"
+                  onButtonClick={handleRemove}
+                  showOverview={true}
+                />
+              ))}
+            </ul>
+          </div>
         ) : (
-          <p className='gradient__text'>Your list is empty.</p>
+          <p className="gradient__text">Your list is empty.</p>
         )}
       </div>
     </div>

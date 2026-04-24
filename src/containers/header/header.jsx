@@ -8,7 +8,7 @@ function Header({ setSearchResults }) {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get('https://api.themoviedb.org/3/search/movie', {
+      const response = await axios.get('https://api.themoviedb.org/3/search/multi', {
         params: {
           api_key: process.env.REACT_APP_TMDB_API_KEY,
           query,

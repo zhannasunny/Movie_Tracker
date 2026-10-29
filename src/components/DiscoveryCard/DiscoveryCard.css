@@ -1,0 +1,58 @@
+
+.discovery-card {
+  flex: 0 0 170px;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #181818;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.discovery-card:hover {
+  transform: scale(1.04);
+}
+
+.discovery-card__poster {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  background: #252525;
+}
+
+.discovery-card__poster--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #aaa;
+  text-align: center;
+}
+
+.discovery-card__info {
+  padding: 10px;
+}
+
+.discovery-card__info h3 {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.discovery-card__info p {
+  margin: 0 0 10px;
+  color: #bbb;
+  font-size: 0.8rem;
+}
+
+.discovery-card__info button {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
